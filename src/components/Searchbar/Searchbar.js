@@ -11,6 +11,7 @@ export const Searchbar = ({ onSearch }) => {
       onSubmit={(values, actions) => {
         actions.resetForm();
         onSearch(values);
+        console.log(values);
       }}>
       <SearchbarForm>
         <Form>
