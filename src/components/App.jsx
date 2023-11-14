@@ -3,7 +3,7 @@ import { Wrapper } from './App.style';
 import { GlobalStyle } from './GlobalStyle';
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
-import { fetchImg } from './api';
+import { fetchImg } from './Servers/api';
 import { LoadMoreButton } from './Button/Button';
 import toast, { Toaster } from 'react-hot-toast';
 import { Loader } from './Loader/Loader';
@@ -27,8 +27,6 @@ export class App extends Component {
         this.setState({ isLoading: true });
         const addImages = await fetchImg(newQuery, page);
         const totalPage = Math.ceil(addImages.totalHits / perPage);
-        console.log('totalpage:', totalPage);
-        console.log('page', page);
 
         if (addImages.totalHits > 12) {
           this.setState({
